@@ -7,6 +7,7 @@ import wikipedia
 import webbrowser
 import os
 import smtplib
+import random
 
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
@@ -85,7 +86,11 @@ if __name__ == "__main__":
 
 
         elif 'play music' in query:
-            pass
+            music_dir = "C:\\music"
+            songs = os.listdir(music_dir)
+            a = random.choice(songs)
+            os.startfile(os.path.join(music_dir,a))
+
         elif 'time' in query:
             strTime = datetime.datetime.now().strftime("%H:%M:%S")
             speak(f"The time is {strTime}")
